@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quinze Anos - Pedro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Playfair Display', serif;
+  background:#0d0d0d;
+  color:#f2f2f2;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+/* ABERTURA */
+#intro{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:black;
+  top:0;
+  left:0;
+  z-index:9999;
+  animation:abrir 2.2s ease forwards;
+}
+
+@keyframes abrir{
+  0%{opacity:1;}
+  70%{opacity:1;}
+  100%{opacity:0; visibility:hidden;}
+}
+
+/* HERO */
+
+.hero{
+  min-height:120vh;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url('2009407facff8a1ad76ab2ba4cdf63ed.jpg') center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  animation:zoom 20s infinite alternate ease-in-out;
+  padding:40px 20px;
+}
+
+@keyframes zoom{
+  from{background-size:100%;}
+  to{background-size:110%;}
+}
+
+/* brilho sutil */
+.hero::after{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  top:-50%;
+  left:-50%;
+  background:radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 60%);
+  animation:brilho 10s infinite linear;
+  pointer-events:none;
+}
+
+@keyframes brilho{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+h1{
+  font-size:6rem;
+  letter-spacing:10px;
+  margin:0;
+  text-shadow:0 0 25px rgba(255,255,255,0.25);
+  opacity:0;
+  transform:translateY(50px);
+  animation:fadeUp 1.2s ease forwards;
+}
+
+.nome{
+  font-family:'Great Vibes', cursive;
+  font-size:5rem;
+  margin-top:-25px;
+  margin-bottom:20px;
+  text-shadow:0 0 20px rgba(255,255,255,0.2);
+  opacity:0;
+  animation:fadeUp 1.8s ease forwards;
+}
+
+.linha{
+  width:150px;
+  height:1px;
+  background:white;
+  margin:15px auto 40px;
+  opacity:0;
+  animation:fadeUp 2.2s ease forwards;
+}
+
+.frase{
+  font-style:italic;
+  margin-bottom:100px;
+  opacity:0.85;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* FORM */
+
+form{
+  background:rgba(0,0,0,0.6);
+  padding:40px;
+  max-width:420px;
+  width:100%;
+  backdrop-filter:blur(8px);
+  margin-top:120px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-bottom:25px;
+  background:#111;
+  border:1px solid #333;
+  color:white;
+}
+
+button{
+  padding:12px 22px;
+  margin:6px;
+  border:1px solid white;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:white;
+  color:black;
+}
+
+button.ativo{
+  background:white;
+  color:black;
+}
+
+#botaoConfirmar.enviado,
+#botaoPix.copiado{
+  background:#27ae60;
+  border-color:#27ae60;
+  color:white;
+}
+
+/* SEÇÕES */
+
+section{
+  padding:140px 20px;
+  max-width:800px;
+  margin:auto;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+section.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  letter-spacing:2px;
+  margin-bottom:20px;
+}
+
+section p{
+  max-width:600px;
+  margin:15px auto;
+  opacity:0.85;
+}
+
+.divisor{
+  height:1px;
+  background:linear-gradient(to right, transparent, white, transparent);
+  margin:80px auto;
+  width:60%;
+}
+
+.pix-box{
+  background:#111;
+  padding:25px;
+  border:1px solid #333;
+  margin:30px 0;
+  word-break:break-all;
+  font-size:0.8rem;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="intro"></div>
+
+<div class="hero">
+  <h1>QUINZE ANOS</h1>
+  <p class="nome">Pedro</p>
+  <div class="linha"></div>
+  <p class="frase">Entre o que fui e o que começo a ser.</p>
+
+  <form id="formConfirmacao">
+    <input type="text" name="Nome" placeholder="Nome completo" required>
+
+    <div>
+      <button type="button" class="presenca" data-value="Vou comparecer">Vou comparecer</button>
+      <button type="button" class="presenca" data-value="Não poderei ir">Não poderei ir</button>
+    </div>
+
+    <div style="margin-top:20px;">
+      <p style="opacity:0.7;">Acompanhantes</p>
+      <button type="button" class="acomp" data-value="0">0</button>
+      <button type="button" class="acomp" data-value="1">1</button>
+      <button type="button" class="acomp" data-value="2">2</button>
+      <button type="button" class="acomp" data-value="3">3</button>
+    </div>
+
+    <button type="submit" id="botaoConfirmar">Confirmar presença</button>
+  </form>
+</div>
+
+<section>
+  <h2>SOBRE A NOITE</h2>
+  <p>Uma noite marcada por memórias, transição e novos começos.</p>
+  <p>Será servido um churrasco especial acompanhado de arroz, mandioca e salada de tomate.</p>
+</section>
+
+<div class="divisor"></div>
+
+<section>
+  <h2>LOCAL</h2>
+  <p>Rua José Pádua Medeiro, 1030</p>
+  <p>28 de Março • 18h</p>
+</section>
+
+<div class="divisor"></div>
+
+<section>
+  <h2>PRESENTE</h2>
+  <p>Se desejar presentear, o valor é livre.</p>
+
+  <div class="pix-box">
+00020101021126580014br.gov.bcb.pix013689ecd316-b8d5-4e27-b668-77f4c310e5a95204000053039865802BR5921PEDRO MARQUES GUEVARA6013PRESIDENTE PR62070503***630430C3
+  </div>
+
+  <button id="botaoPix" onclick="copiarPix()">Copiar chave Pix</button>
+</section>
+
+<script>
+
+let presencaSelecionada="";
+let acompanhantesSelecionados="0";
+
+document.querySelectorAll(".presenca").forEach(btn=>{
+  btn.onclick=function(){
+    document.querySelectorAll(".presenca").forEach(b=>b.classList.remove("ativo"));
+    this.classList.add("ativo");
+    presencaSelecionada=this.dataset.value;
+  }
+});
+
+document.querySelectorAll(".acomp").forEach(btn=>{
+  btn.onclick=function(){
+    document.querySelectorAll(".acomp").forEach(b=>b.classList.remove("ativo"));
+    this.classList.add("ativo");
+    acompanhantesSelecionados=this.dataset.value;
+  }
+});
+
+document.getElementById("formConfirmacao").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  fetch("https://formsubmit.co/ajax/marquesguevarap@gmail.com",{
+    method:"POST",
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      Nome:this.Nome.value,
+      Presença:presencaSelecionada,
+      Acompanhantes:acompanhantesSelecionados
+    })
+  }).then(()=>{
+    const botao=document.getElementById("botaoConfirmar");
+    botao.classList.add("enviado");
+    botao.innerText="Confirmado ✓";
+  });
+});
+
+function copiarPix(){
+  const chave=document.querySelector(".pix-box").innerText;
+  navigator.clipboard.writeText(chave);
+
+  const botao=document.getElementById("botaoPix");
+  botao.classList.add("copiado");
+  botao.innerText="Chave copiada ✓";
+}
+
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    if(sec.getBoundingClientRect().top<window.innerHeight-100){
+      sec.classList.add("visible");
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
