@@ -18,7 +18,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ABERTURA */
+/* Abertura */
 #intro{
   position:fixed;
   width:100%;
@@ -27,7 +27,7 @@ body{
   top:0;
   left:0;
   z-index:9999;
-  animation:abrir 2.2s ease forwards;
+  animation:abrir 2s ease forwards;
 }
 
 @keyframes abrir{
@@ -36,10 +36,9 @@ body{
   100%{opacity:0; visibility:hidden;}
 }
 
-/* HERO */
-
+/* Hero */
 .hero{
-  min-height:120vh;
+  min-height:110vh;
   position:relative;
   overflow:hidden;
   background:
@@ -49,16 +48,9 @@ body{
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  animation:zoom 20s infinite alternate ease-in-out;
   padding:40px 20px;
 }
 
-@keyframes zoom{
-  from{background-size:100%;}
-  to{background-size:110%;}
-}
-
-/* brilho sutil */
 .hero::after{
   content:"";
   position:absolute;
@@ -66,8 +58,8 @@ body{
   height:200%;
   top:-50%;
   left:-50%;
-  background:radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 60%);
-  animation:brilho 10s infinite linear;
+  background:radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
+  animation:brilho 12s infinite linear;
   pointer-events:none;
 }
 
@@ -77,37 +69,37 @@ body{
 }
 
 h1{
-  font-size:6rem;
-  letter-spacing:10px;
+  font-size:4.2rem;
+  letter-spacing:6px;
   margin:0;
-  text-shadow:0 0 25px rgba(255,255,255,0.25);
+  text-shadow:0 0 20px rgba(255,255,255,0.2);
   opacity:0;
-  transform:translateY(50px);
+  transform:translateY(40px);
   animation:fadeUp 1.2s ease forwards;
 }
 
 .nome{
   font-family:'Great Vibes', cursive;
-  font-size:5rem;
-  margin-top:-25px;
+  font-size:3.8rem;
+  margin-top:-15px;
   margin-bottom:20px;
-  text-shadow:0 0 20px rgba(255,255,255,0.2);
+  text-shadow:0 0 18px rgba(255,255,255,0.2);
   opacity:0;
   animation:fadeUp 1.8s ease forwards;
 }
 
 .linha{
-  width:150px;
+  width:120px;
   height:1px;
   background:white;
-  margin:15px auto 40px;
+  margin:15px auto 30px;
   opacity:0;
   animation:fadeUp 2.2s ease forwards;
 }
 
 .frase{
   font-style:italic;
-  margin-bottom:100px;
+  margin-bottom:90px;
   opacity:0.85;
 }
 
@@ -118,15 +110,14 @@ h1{
   }
 }
 
-/* FORM */
-
+/* Form */
 form{
   background:rgba(0,0,0,0.6);
-  padding:40px;
+  padding:35px;
   max-width:420px;
   width:100%;
   backdrop-filter:blur(8px);
-  margin-top:120px;
+  margin-top:100px;
 }
 
 input{
@@ -139,7 +130,7 @@ input{
 }
 
 button{
-  padding:12px 22px;
+  padding:10px 20px;
   margin:6px;
   border:1px solid white;
   background:transparent;
@@ -165,20 +156,11 @@ button.ativo{
   color:white;
 }
 
-/* SEÇÕES */
-
+/* Sections */
 section{
-  padding:140px 20px;
+  padding:120px 20px;
   max-width:800px;
   margin:auto;
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-
-section.visible{
-  opacity:1;
-  transform:translateY(0);
 }
 
 h2{
@@ -205,7 +187,13 @@ section p{
   border:1px solid #333;
   margin:30px 0;
   word-break:break-all;
-  font-size:0.8rem;
+  font-size:0.75rem;
+}
+
+/* Responsivo */
+@media (max-width:768px){
+  h1{font-size:3rem;}
+  .nome{font-size:2.8rem;}
 }
 
 </style>
@@ -243,8 +231,8 @@ section p{
 
 <section>
   <h2>SOBRE A NOITE</h2>
-  <p>Uma noite marcada por memórias, transição e novos começos.</p>
-  <p>Será servido um churrasco especial acompanhado de arroz, mandioca e salada de tomate.</p>
+  <p>Uma noite marcada por memórias e novos começos.</p>
+  <p>Será servido churrasco acompanhado de arroz, mandioca e salada de tomate.</p>
 </section>
 
 <div class="divisor"></div>
@@ -315,15 +303,6 @@ function copiarPix(){
   botao.classList.add("copiado");
   botao.innerText="Chave copiada ✓";
 }
-
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-  sections.forEach(sec=>{
-    if(sec.getBoundingClientRect().top<window.innerHeight-100){
-      sec.classList.add("visible");
-    }
-  });
-});
 
 </script>
 
