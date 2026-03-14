@@ -10,190 +10,228 @@
 <style>
 
 body{
-  margin:0;
-  font-family:'Playfair Display', serif;
-  background:#0d0d0d;
-  color:#f2f2f2;
-  text-align:center;
-  overflow-x:hidden;
+margin:0;
+font-family:'Playfair Display', serif;
+background:#0d0d0d;
+color:#f2f2f2;
+text-align:center;
+overflow-x:hidden;
 }
 
-/* Abertura */
-#intro{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:black;
-  top:0;
-  left:0;
-  z-index:9999;
-  animation:abrir 2s ease forwards;
+/* TELA DE ABERTURA */
+
+#cover{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+transition:1.5s;
 }
 
-@keyframes abrir{
-  0%{opacity:1;}
-  70%{opacity:1;}
-  100%{opacity:0; visibility:hidden;}
+#cover h1{
+font-size:2.5rem;
+letter-spacing:4px;
+margin-bottom:20px;
 }
 
-/* Hero */
+#cover .nome{
+font-family:'Great Vibes', cursive;
+font-size:3rem;
+margin-bottom:40px;
+}
+
+#abrir{
+padding:12px 28px;
+border:1px solid white;
+background:transparent;
+color:white;
+cursor:pointer;
+transition:0.4s;
+}
+
+#abrir:hover{
+background:white;
+color:black;
+}
+
+#cover.sumir{
+opacity:0;
+pointer-events:none;
+}
+
+/* HERO */
+
 .hero{
-  min-height:110vh;
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-    url('2009407facff8a1ad76ab2ba4cdf63ed.jpg') center/cover no-repeat;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:40px 20px;
+min-height:110vh;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+url('2009407facff8a1ad76ab2ba4cdf63ed.jpg') center/cover no-repeat;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
 }
 
 .hero::after{
-  content:"";
-  position:absolute;
-  width:200%;
-  height:200%;
-  top:-50%;
-  left:-50%;
-  background:radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
-  animation:brilho 12s infinite linear;
-  pointer-events:none;
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+top:-50%;
+left:-50%;
+background:radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
+animation:brilho 12s infinite linear;
+pointer-events:none;
 }
 
 @keyframes brilho{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
 }
 
 h1{
-  font-size:4.2rem;
-  letter-spacing:6px;
-  margin:0;
-  text-shadow:0 0 20px rgba(255,255,255,0.2);
-  opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp 1.2s ease forwards;
+font-size:4.2rem;
+letter-spacing:6px;
+margin:0;
+text-shadow:0 0 20px rgba(255,255,255,0.2);
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1.2s ease forwards;
 }
 
 .nome{
-  font-family:'Great Vibes', cursive;
-  font-size:3.8rem;
-  margin-top:-15px;
-  margin-bottom:20px;
-  text-shadow:0 0 18px rgba(255,255,255,0.2);
-  opacity:0;
-  animation:fadeUp 1.8s ease forwards;
+font-family:'Great Vibes', cursive;
+font-size:3.8rem;
+margin-top:-15px;
+margin-bottom:20px;
+text-shadow:0 0 18px rgba(255,255,255,0.2);
+opacity:0;
+animation:fadeUp 1.8s ease forwards;
 }
 
 .linha{
-  width:120px;
-  height:1px;
-  background:white;
-  margin:15px auto 30px;
-  opacity:0;
-  animation:fadeUp 2.2s ease forwards;
+width:120px;
+height:1px;
+background:white;
+margin:15px auto 30px;
+opacity:0;
+animation:fadeUp 2.2s ease forwards;
 }
 
 .frase{
-  font-style:italic;
-  margin-bottom:90px;
-  opacity:0.85;
+font-style:italic;
+margin-bottom:90px;
+opacity:0.85;
 }
 
 @keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
-/* Form */
+/* FORM */
+
 form{
-  background:rgba(0,0,0,0.6);
-  padding:35px;
-  max-width:420px;
-  width:100%;
-  backdrop-filter:blur(8px);
-  margin-top:100px;
+background:rgba(0,0,0,0.6);
+padding:35px;
+max-width:420px;
+width:100%;
+backdrop-filter:blur(8px);
+margin-top:100px;
 }
 
 input{
-  width:100%;
-  padding:12px;
-  margin-bottom:25px;
-  background:#111;
-  border:1px solid #333;
-  color:white;
+width:100%;
+padding:12px;
+margin-bottom:25px;
+background:#111;
+border:1px solid #333;
+color:white;
 }
 
 button{
-  padding:10px 20px;
-  margin:6px;
-  border:1px solid white;
-  background:transparent;
-  color:white;
-  cursor:pointer;
-  transition:0.3s;
+padding:10px 20px;
+margin:6px;
+border:1px solid white;
+background:transparent;
+color:white;
+cursor:pointer;
+transition:0.3s;
 }
 
 button:hover{
-  background:white;
-  color:black;
+background:white;
+color:black;
 }
 
 button.ativo{
-  background:white;
-  color:black;
+background:white;
+color:black;
 }
 
 #botaoConfirmar.enviado,
 #botaoPix.copiado{
-  background:#27ae60;
-  border-color:#27ae60;
-  color:white;
+background:#27ae60;
+border-color:#27ae60;
+color:white;
 }
 
-/* Sections */
+/* SEÇÕES */
+
 section{
-  padding:120px 20px;
-  max-width:800px;
-  margin:auto;
+padding:120px 20px;
+max-width:800px;
+margin:auto;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+section.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 h2{
-  letter-spacing:2px;
-  margin-bottom:20px;
+letter-spacing:2px;
+margin-bottom:20px;
 }
 
 section p{
-  max-width:600px;
-  margin:15px auto;
-  opacity:0.85;
+max-width:600px;
+margin:15px auto;
+opacity:0.85;
 }
 
 .divisor{
-  height:1px;
-  background:linear-gradient(to right, transparent, white, transparent);
-  margin:80px auto;
-  width:60%;
+height:1px;
+background:linear-gradient(to right, transparent, white, transparent);
+margin:80px auto;
+width:60%;
 }
 
 .pix-box{
-  background:#111;
-  padding:25px;
-  border:1px solid #333;
-  margin:30px 0;
-  word-break:break-all;
-  font-size:0.75rem;
+background:#111;
+padding:25px;
+border:1px solid #333;
+margin:30px 0;
+word-break:break-all;
+font-size:0.75rem;
 }
 
-/* Responsivo */
 @media (max-width:768px){
-  h1{font-size:3rem;}
-  .nome{font-size:2.8rem;}
+h1{font-size:3rem;}
+.nome{font-size:2.6rem;}
 }
 
 </style>
@@ -201,108 +239,182 @@ section p{
 
 <body>
 
-<div id="intro"></div>
+<!-- TELA DE ABERTURA -->
+
+<div id="cover">
+
+<h1>QUINZE ANOS</h1>
+<div class="nome">Pedro</div>
+
+<button id="abrir" onclick="abrirConvite()">Abrir convite</button>
+
+</div>
+
+<!-- CONVITE -->
 
 <div class="hero">
-  <h1>QUINZE ANOS</h1>
-  <p class="nome">Pedro</p>
-  <div class="linha"></div>
-  <p class="frase">Entre o que fui e o que começo a ser.</p>
 
-  <form id="formConfirmacao">
-    <input type="text" name="Nome" placeholder="Nome completo" required>
+<h1>QUINZE ANOS</h1>
+<p class="nome">Pedro</p>
 
-    <div>
-      <button type="button" class="presenca" data-value="Vou comparecer">Vou comparecer</button>
-      <button type="button" class="presenca" data-value="Não poderei ir">Não poderei ir</button>
-    </div>
+<div class="linha"></div>
 
-    <div style="margin-top:20px;">
-      <p style="opacity:0.7;">Acompanhantes</p>
-      <button type="button" class="acomp" data-value="0">0</button>
-      <button type="button" class="acomp" data-value="1">1</button>
-      <button type="button" class="acomp" data-value="2">2</button>
-      <button type="button" class="acomp" data-value="3">3</button>
-    </div>
+<p class="frase">Entre o que fui e o que começo a ser.</p>
 
-    <button type="submit" id="botaoConfirmar">Confirmar presença</button>
-  </form>
+<form id="formConfirmacao">
+
+<input type="text" name="Nome" placeholder="Nome completo" required>
+
+<div>
+<button type="button" class="presenca" data-value="Vou comparecer">Vou comparecer</button>
+<button type="button" class="presenca" data-value="Não poderei ir">Não poderei ir</button>
+</div>
+
+<div style="margin-top:20px;">
+<p style="opacity:0.7;">Acompanhantes</p>
+<button type="button" class="acomp" data-value="0">0</button>
+<button type="button" class="acomp" data-value="1">1</button>
+<button type="button" class="acomp" data-value="2">2</button>
+<button type="button" class="acomp" data-value="3">3</button>
+</div>
+
+<button type="submit" id="botaoConfirmar">Confirmar presença</button>
+
+</form>
+
 </div>
 
 <section>
-  <h2>SOBRE A NOITE</h2>
-  <p>Uma noite marcada por memórias e novos começos.</p>
-  <p>Será servido churrasco acompanhado de arroz, mandioca e salada de tomate.</p>
+
+<h2>SOBRE A NOITE</h2>
+
+<p>Uma noite marcada por memórias e novos começos.</p>
+
+<p>Será servido churrasco acompanhado de arroz, mandioca e salada de tomate.</p>
+
 </section>
 
 <div class="divisor"></div>
 
 <section>
-  <h2>LOCAL</h2>
-  <p>Rua José Pádua Medeiro, 1030</p>
-  <p>28 de Março • 18h</p>
+
+<h2>LOCAL</h2>
+
+<p>Rua José Pádua Medeiro, 1030</p>
+
+<p>28 de Março • 18h</p>
+
 </section>
 
 <div class="divisor"></div>
 
 <section>
-  <h2>PRESENTE</h2>
-  <p>Se desejar presentear, o valor é livre.</p>
 
-  <div class="pix-box">
+<h2>PRESENTE</h2>
+
+<p>Se desejar presentear, o valor é livre.</p>
+
+<div class="pix-box">
+
 00020101021126580014br.gov.bcb.pix013689ecd316-b8d5-4e27-b668-77f4c310e5a95204000053039865802BR5921PEDRO MARQUES GUEVARA6013PRESIDENTE PR62070503***630430C3
-  </div>
 
-  <button id="botaoPix" onclick="copiarPix()">Copiar chave Pix</button>
+</div>
+
+<button id="botaoPix" onclick="copiarPix()">Copiar chave Pix</button>
+
 </section>
 
 <script>
 
-let presencaSelecionada="";
-let acompanhantesSelecionados="0";
+/* ABRIR CONVITE */
+
+function abrirConvite(){
+document.getElementById("cover").classList.add("sumir")
+}
+
+/* BOTÕES */
+
+let presencaSelecionada=""
+let acompanhantesSelecionados="0"
 
 document.querySelectorAll(".presenca").forEach(btn=>{
-  btn.onclick=function(){
-    document.querySelectorAll(".presenca").forEach(b=>b.classList.remove("ativo"));
-    this.classList.add("ativo");
-    presencaSelecionada=this.dataset.value;
-  }
-});
+btn.onclick=function(){
+document.querySelectorAll(".presenca").forEach(b=>b.classList.remove("ativo"))
+this.classList.add("ativo")
+presencaSelecionada=this.dataset.value
+}
+})
 
 document.querySelectorAll(".acomp").forEach(btn=>{
-  btn.onclick=function(){
-    document.querySelectorAll(".acomp").forEach(b=>b.classList.remove("ativo"));
-    this.classList.add("ativo");
-    acompanhantesSelecionados=this.dataset.value;
-  }
-});
+btn.onclick=function(){
+document.querySelectorAll(".acomp").forEach(b=>b.classList.remove("ativo"))
+this.classList.add("ativo")
+acompanhantesSelecionados=this.dataset.value
+}
+})
+
+/* ENVIAR FORM */
 
 document.getElementById("formConfirmacao").addEventListener("submit",function(e){
-  e.preventDefault();
 
-  fetch("https://formsubmit.co/ajax/marquesguevarap@gmail.com",{
-    method:"POST",
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      Nome:this.Nome.value,
-      Presença:presencaSelecionada,
-      Acompanhantes:acompanhantesSelecionados
-    })
-  }).then(()=>{
-    const botao=document.getElementById("botaoConfirmar");
-    botao.classList.add("enviado");
-    botao.innerText="Confirmado ✓";
-  });
-});
+e.preventDefault()
+
+fetch("https://formsubmit.co/ajax/marquesguevarap@gmail.com",{
+
+method:"POST",
+headers:{'Content-Type':'application/json'},
+
+body:JSON.stringify({
+Nome:this.Nome.value,
+Presença:presencaSelecionada,
+Acompanhantes:acompanhantesSelecionados
+})
+
+}).then(()=>{
+
+const botao=document.getElementById("botaoConfirmar")
+
+botao.classList.add("enviado")
+
+botao.innerText="Confirmado ✓"
+
+})
+
+})
+
+/* PIX */
 
 function copiarPix(){
-  const chave=document.querySelector(".pix-box").innerText;
-  navigator.clipboard.writeText(chave);
 
-  const botao=document.getElementById("botaoPix");
-  botao.classList.add("copiado");
-  botao.innerText="Chave copiada ✓";
+const chave=document.querySelector(".pix-box").innerText
+
+navigator.clipboard.writeText(chave)
+
+const botao=document.getElementById("botaoPix")
+
+botao.classList.add("copiado")
+
+botao.innerText="Chave copiada ✓"
+
 }
+
+/* REVELAÇÃO AO SCROLL */
+
+const sections=document.querySelectorAll("section")
+
+window.addEventListener("scroll",()=>{
+
+sections.forEach(sec=>{
+
+if(sec.getBoundingClientRect().top < window.innerHeight-100){
+
+sec.classList.add("visible")
+
+}
+
+})
+
+})
 
 </script>
 
